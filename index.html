@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover beautiful fashion, home, beauty, tech and everyday finds at The Everyday Finds.">
+  <title>The Everyday Finds | Beautiful Finds, Everyday Inspiration</title>
+  <style>
+    :root {
+      --cream: #f8f4ec;
+      --paper: #fffdf8;
+      --ink: #30291f;
+      --muted: #796f61;
+      --gold: #b18a4a;
+      --gold-dark: #89652e;
+      --line: #e8dfd0;
+      --soft: #eee5d6;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif; line-height: 1.55;
+    }
+    a { color: inherit; }
+    .announcement {
+      background: var(--ink); color: #f8f1e4; text-align: center;
+      padding: 9px 14px; font: 11px/1.4 Arial, sans-serif;
+      letter-spacing: .16em; text-transform: uppercase;
+    }
+    header {
+      background: rgba(255,253,248,.96); border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px);
+    }
+    .nav-wrap {
+      max-width: 1160px; margin: auto; padding: 17px 22px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand { text-decoration: none; font-size: 23px; letter-spacing: .02em; white-space: nowrap; }
+    .brand span { color: var(--gold-dark); }
+    nav { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+    nav a {
+      text-decoration: none; color: var(--muted); font: 11px Arial, sans-serif;
+      text-transform: uppercase; letter-spacing: .1em;
+    }
+    nav a:hover { color: var(--gold-dark); }
+    .hero {
+      background: var(--cream); padding: 72px 22px 66px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-inner {
+      max-width: 1160px; margin: auto; display: grid;
+      grid-template-columns: 1.02fr .98fr; gap: 48px; align-items: center;
+    }
+    .eyebrow {
+      color: var(--gold-dark); font: 11px Arial, sans-serif;
+      text-transform: uppercase; letter-spacing: .2em; font-weight: bold;
+    }
+    h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.02; font-weight: normal; margin: 17px 0; }
+    h1 em { color: var(--gold-dark); font-weight: normal; }
+    .hero p { color: var(--muted); max-width: 490px; font-size: 17px; }
+    .button {
+      display: inline-block; margin-top: 17px; padding: 14px 23px;
+      background: var(--ink); color: white; text-decoration: none;
+      font: 11px Arial, sans-serif; letter-spacing: .13em; text-transform: uppercase;
+      border: 1px solid var(--ink); transition: .2s;
+    }
+    .button:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
+    .hero-image {
+      min-height: 390px; background:
+      linear-gradient(135deg, rgba(49,39,25,.08), rgba(49,39,25,.02)),
+      url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85") center/cover;
+      border: 10px solid rgba(255,255,255,.7); outline: 1px solid var(--line);
+    }
+    section { padding: 68px 22px; }
+    .section-inner { max-width: 1160px; margin: auto; }
+    .section-heading { text-align: center; margin-bottom: 32px; }
+    .section-heading h2 { font-size: clamp(30px,4vw,43px); font-weight: normal; margin: 8px 0; }
+    .section-heading p { color: var(--muted); margin: 0 auto; max-width: 560px; font-size: 15px; }
+    .categories {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 18px;
+    }
+    .category {
+      min-height: 210px; position: relative; overflow: hidden;
+      display: flex; align-items: end; text-decoration: none; background: var(--soft);
+      border: 1px solid var(--line);
+    }
+    .category img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .category:hover img { transform: scale(1.05); }
+    .category span {
+      position: relative; z-index: 1; width: 100%; padding: 17px;
+      color: white; font-size: 23px; background: linear-gradient(transparent,rgba(0,0,0,.68));
+    }
+    .category small { display: block; font: 10px Arial,sans-serif; letter-spacing: .15em; text-transform: uppercase; }
+    .products { background: var(--cream); }
+    .product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .product {
+      background: var(--paper); border: 1px solid var(--line); padding: 12px;
+    }
+    .product img { width: 100%; height: 225px; object-fit: cover; background: var(--soft); display: block; }
+    .product h3 { font-size: 20px; font-weight: normal; margin: 14px 2px 5px; }
+    .product p { font: 13px/1.6 Arial,sans-serif; color: var(--muted); margin: 0 2px 12px; }
+    .product a { color: var(--gold-dark); font: 11px Arial,sans-serif; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; }
+    .note { font: 12px/1.6 Arial,sans-serif; color: var(--muted); margin-top: 24px; text-align: center; }
+    .about-box {
+      max-width: 790px; margin: auto; text-align: center; padding: 36px;
+      border: 1px solid var(--line); background: var(--paper);
+    }
+    .about-box h2 { font-size: 36px; font-weight: normal; margin: 10px 0; }
+    .about-box p { color: var(--muted); }
+    footer { background: var(--ink); color: #f7f0e5; padding: 42px 22px 24px; }
+    .footer-inner { max-width: 1160px; margin: auto; display: flex; justify-content: space-between; gap: 25px; flex-wrap: wrap; }
+    footer p, footer a { color: #d8cdbb; font: 12px/1.7 Arial,sans-serif; }
+    footer a { text-decoration: none; }
+    .copyright { max-width: 1160px; margin: 25px auto 0; padding-top: 17px; border-top: 1px solid #514638; color: #bfb19b; font: 11px Arial,sans-serif; }
+    @media(max-width:760px) {
+      .nav-wrap { align-items: flex-start; flex-direction: column; }
+      nav { gap: 12px; }
+      .hero { padding-top: 48px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .hero-image { min-height: 270px; }
+      .categories { grid-template-columns: repeat(2,1fr); }
+      .category { min-height: 165px; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
+      .product img { height: 170px; }
+    }
+    @media(max-width:430px) {
+      .categories, .product-grid { grid-template-columns: 1fr; }
+      .category { min-height: 210px; }
+      .product img { height: 220px; }
+      .about-box { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Thoughtful discoveries for everyday living</div>
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="#home">The <span>Everyday</span> Finds</a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#categories">Categories</a>
+        <a href="#discoveries">Featured finds</a><a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Beautiful finds. Everyday inspiration.</div>
+          <h1>Discover your next <em>favourite</em> find.</h1>
+          <p>Explore lovely discoveries for your wardrobe, home, beauty routine and everyday life. A little inspiration for making ordinary moments feel special.</p>
+          <a class="button" href="#categories">Explore categories</a>
+        </div>
+        <div class="hero-image" role="img" aria-label="Fashion inspiration"></div>
+      </div>
+    </section>
+
+    <section id="categories">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">Explore the edit</div>
+          <h2>Find something you love</h2>
+          <p>Browse inspiration across the categories that make everyday living more enjoyable.</p>
+        </div>
+        <div class="categories">
+          <a class="category" href="#discoveries"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Fashion and accessories"><span><small>Style edit</small>Fashion & Accessories</span></a>
+          <a class="category" href="#discoveries"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Home decor"><span><small>At home</small>Home Décor</span></a>
+          <a class="category" href="#discoveries"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80" alt="Beauty products"><span><small>Self-care</small>Beauty & Personal Care</span></a>
+          <a class="category" href="#discoveries"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Technology workspace"><span><small>Useful tech</small>Electronics & Gadgets</span></a>
+          <a class="category" href="#discoveries"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Kitchen and food"><span><small>Everyday living</small>Kitchen Essentials</span></a>
+          <a class="category" href="#discoveries"><img src="https://images.unsplash.com/photo-1455390582262-044cacij7d?auto=format&fit=crop&w=800&q=80" alt="Stationery and desk"><span><small>Work & study</small>Stationery & Lifestyle</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="discoveries">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">The latest edit</div>
+          <h2>Featured finds</h2>
+          <p>A few ideas to get your browsing started. Replace these sample cards with products you have personally checked.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=700&q=80" alt="Classic handbag">
+            <h3>Everyday Style Pick</h3><p>A versatile accessory idea to complement your wardrobe.</p>
+            <a href="#contact">View product details →</a>
+          </article>
+          <article class="product">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt="Calm home interior">
+            <h3>Cosy Home Inspiration</h3><p>Simple inspiration for creating a welcoming space.</p>
+            <a href="#contact">View product details →</a>
+          </article>
+          <article class="product">
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=80" alt="Beauty accessories">
+            <h3>Beauty Shelf Favourite</h3><p>Discover useful additions to your personal-care routine.</p>
+            <a href="#contact">View product details →</a>
+          </article>
+        </div>
+        <p class="note">These are illustrative editorial cards, not verified product listings. Add a real product link only after checking the item, seller, price and affiliate terms.</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-inner">
+        <div class="about-box">
+          <div class="eyebrow">A little about us</div>
+          <h2>Welcome to The Everyday Finds</h2>
+          <p>We share product inspiration and discoveries across fashion, home, beauty, technology and everyday essentials. Our goal is to make finding useful and lovely things feel simple.</p>
+          <p>We are an independent discovery page, not the seller or manufacturer of the products featured.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <div>
+        <div class="brand">The <span>Everyday</span> Finds</div>
+        <p>Beautiful finds. Everyday inspiration.</p>
+      </div>
+      <div>
+        <strong>Get in touch</strong>
+        <p>Replace this text with your public business email or contact page.</p>
+        <p><a href="#home">Back to top ↑</a></p>
+      </div>
+      <div>
+        <strong>Important information</strong>
+        <p>Affiliate disclosure: Some links on this website may be affiliate links. If you buy through them, we may earn a commission at no extra cost to you. We will identify affiliate links clearly.</p>
+      </div>
+    </div>
+    <div class="copyright">© <span id="year"></span> The Everyday Finds. All rights reserved.</div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
